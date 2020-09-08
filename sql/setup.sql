@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS chickens;
+
+CREATE TABLE chickens (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name TEXT NOT NULL,
+  age INT CHECK (age > 0),
+  weight TEXT
+);
