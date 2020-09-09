@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS chickens;
 DROP TABLE IF EXISTS cats;
 DROP TABLE IF EXISTS humans;
+DROP TABLE IF EXISTS games;
 
 CREATE TABLE chickens (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -22,4 +23,12 @@ CREATE TABLE humans (
   name TEXT NOT NULL,
   age INT CHECK (age > 0),
   height TEXT NOT NULL
+);
+
+CREATE TABLE games (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name TEXT NOT NULL,
+  played BOOLEAN,
+  age_played INT CHECK (age_played > 0),
+  difficulty TEXT CHECK (difficulty = ANY('{easy,regular,hard}'))
 );
