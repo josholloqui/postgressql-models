@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS chickens;
 DROP TABLE IF EXISTS cats;
 DROP TABLE IF EXISTS humans;
 DROP TABLE IF EXISTS games;
+DROP TABLE IF EXISTS movies;
 
 CREATE TABLE chickens (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -31,4 +32,11 @@ CREATE TABLE games (
   played BOOLEAN,
   age_played INT CHECK (age_played > 0),
   difficulty TEXT CHECK (difficulty = ANY('{easy,regular,hard}'))
+);
+
+CREATE TABLE  movies (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  title TEXT NOT NULL,
+  year_released INT NOT NULL,
+  watched BOOLEAN
 );
